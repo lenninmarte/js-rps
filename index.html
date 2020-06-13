@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JS RPS</title>
+  <meta charset="UTF-8"/>
+</head>
+<body>
+  <script>
+    // Your JavaScript goes here!
+    let roundCounter = 1;
+    let playerScore = 0;
+    let computerScore = 0;
+
+    let playerSelection;
+    let computerSelection;
+
+    let message;
+
+    function computerPlay() {
+        const options = ['rock', 'paper', 'scissors'];
+			return options[Math.floor(Math.random() * options.length)];
+        }
+
+        
+        function playRound(playerSelection, computerSelection) {
+             playerSelection = prompt("Choose one (Paper/Rock/Scissors): ").toLowerCase();
+             computerSelection = computerPlay();
+
+            message = "ROUND #" + roundCounter + ".";
+
+            if (playerSelection === computerSelection) {
+                message += " It's a tie!. Try again!";
+                return message;
+            } else if (playerSelection === 'scissors' && computerSelection === 'rock') {
+                computerScore++;
+                message += " Rock smashes scissors!";
+                return message;
+            } else if (playerSelection === 'rock' && computerSelection === 'scissors') {
+                playerScore++;
+                message += " Rock smashes scissors!";
+                return message;
+            } else if (playerSelection === 'paper' && computerSelection === 'scissors') {
+                computerScore++;
+                message += " Scissor cuts right through paper!";
+                return message;
+            } else if (playerSelection === 'scissors' && computerSelection === 'paper') {
+                playerScore++;
+                message += " Scissor cuts right through paper!";
+                return message;
+            } else if (playerSelection === 'rock' && computerSelection === 'paper') {
+                computerScore++;
+                message += " Paper covers a multitude of rocks";
+                return message;
+            } else if (playerSelection === 'paper' && computerSelection === 'rock') {
+                playerScore++;
+                message += " Paper covers a multitude of rocks";
+                return message;
+            } else {
+				message += ' Wrong input. Try again.';
+				return message;
+			}
+
+    }
+
+        function game() {
+                do {
+                    console.log(playRound());
+                    roundCounter++;
+                } while (playerScore < 3 && computerScore < 3);
+
+                if (playerScore === 3) {
+                    message = "Congratulations! You're the winner.";
+                } else {
+                    message = "Sorry! You've lost.";
+                }
+
+                message += " Your score is " + playerScore + " and computer's score is " + computerScore + ".";
+                return message;
+            }
+		console.log(game());
+  </script>
+</body>
+</html>
