@@ -21,6 +21,14 @@
 			return options[Math.floor(Math.random() * options.length)];
         }
 
+        function getPrependingMessageOfPlayersPicks(playerSelection, computerSelection) {
+            let prependingString;
+            
+            prependingString = "You Selected: " + playerSelection + "\n";
+            prependingString += "CPU Selected: " + computerSelection + "\n";
+
+            return prependingString; 
+        }
         
         function playRound(playerSelection, computerSelection) {
              playerSelection = prompt("Choose one (Paper/Rock/Scissors): ").toLowerCase();
