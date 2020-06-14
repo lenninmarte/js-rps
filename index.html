@@ -21,7 +21,7 @@
 			return options[Math.floor(Math.random() * options.length)];
         }
 
-        function getPrependingMessageOfPlayersPicks(playerSelection, computerSelection) {
+        function getAppendingMessageOfPlayersPicks(playerSelection, computerSelection) {
             let prependingString;
             
             prependingString = "You Selected: " + playerSelection + "\n";
@@ -36,7 +36,7 @@
 
             message = "ROUND #" + roundCounter + ".";
 
-            message += "\n" + getPrependingMessageOfPlayersPicks(playerSelection, computerSelection) + "...\n";
+            message += "\n" + getAppendingMessageOfPlayersPicks(playerSelection, computerSelection) + "...\n";
 
             if (playerSelection === computerSelection) {
                 message += " It's a tie!. Try again!";
