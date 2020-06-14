@@ -36,6 +36,8 @@
 
             message = "ROUND #" + roundCounter + ".";
 
+            message += "\n" + getPrependingMessageOfPlayersPicks(playerSelection, computerSelection) + "...\n";
+
             if (playerSelection === computerSelection) {
                 message += " It's a tie!. Try again!";
                 return message;
